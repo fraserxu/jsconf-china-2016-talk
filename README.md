@@ -27,9 +27,6 @@ _Facade_ pattern in jQuery
 `$el.css(), $el.animate()`
 
 
-MVC Design patterns
-
-
 ### Design patterns popular in the current frontend framework world
 
 View is a presentation of a state.
@@ -73,22 +70,17 @@ import Html exposing (button, text)
 import Html.App exposing (beginnerProgram)
 import Html.Events exposing (onClick)
 
-
 main =
   beginnerProgram { model = "打招呼", view = view, update = update }
-
 
 view model =
   button [ onClick SayHello ] [ text model ]
 
-
 type Msg = SayHello
-
 
 update msg model =
   case msg of
     SayHello ->
       "你好"
-
 
 ```
