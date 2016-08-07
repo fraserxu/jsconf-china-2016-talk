@@ -1,0 +1,15 @@
+{
+  "name": "yo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yo-yo": "^1.2.2"
+  }
+}
