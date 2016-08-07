@@ -1,4 +1,4 @@
-## Learning from design patterns of various frontend frameworks
+## Learning from design patterns from modern frontend frameworks
 
 ### Introduction
 
@@ -26,10 +26,22 @@ _Facade_ pattern in jQuery
 
 `$el.css(), $el.animate()`
 
+### Prior art - MVC
+
+> Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given software application into three interconnected parts, so as to separate internal representations of information from the ways that information is presented to or accepted from the user.[1][2]
+
+https://developer.chrome.com/static/images/mvc.png
+https://developer.chrome.com/apps/app_frameworks
+
+### Post MVC era - MV*
+
+MVP/MVVM
+
+[MVC Versus MVP Versus MVVM](https://www.safaribooksonline.com/library/view/learning-javascript-design/9781449334840/ch10s09.html)
 
 ### Design patterns popular in the current frontend framework world
 
-View is a presentation of a state.
+#### View is a presentation of a state.
 
 ```
 View = Fn(State)
@@ -84,3 +96,12 @@ update msg model =
       "你好"
 
 ```
+
+#### Flux, unidirectional data flow
+
+* [Flux](https://facebook.github.io/flux/)
+* [Redux](https://facebook.github.io/flux/)
+* [The Elm Architecture](http://guide.elm-lang.org/architecture/)
+* [mobx](https://github.com/mobxjs/mobx)
+* [send-action](https://github.com/mobxjs/mobx)
+* [choo](https://github.com/yoshuawuyts/choo)
