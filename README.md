@@ -41,9 +41,10 @@ MVP/MVVM
 
 ### Design patterns popular in the current frontend framework world
 
-#### View is a presentation of a state.
+#### Declarative Rendering, View is a presentation of a state.
 
 ```
+Fn: State -> DOM
 View = Fn(State)
 ```
 
@@ -96,6 +97,10 @@ update msg model =
       "你好"
 
 ```
+
+#### Component based View is nice, but how do we manage data flow?
+
+> Data down, actions up.
 
 #### Flux, unidirectional data flow
 
