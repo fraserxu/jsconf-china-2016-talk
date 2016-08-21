@@ -201,7 +201,7 @@ view model =
 
 Note: ^ is from Choo.
 
-**With [Elm]**
+**With [Elm](elm-lang.org)**
 
 * Model — the state of your application
 * Update — a way to update your state
@@ -243,14 +243,15 @@ The only way to make your app predicatable.
 * `[...items, newItem]` or `Array.concat()` over `Array.push()` when updating array
 * `Object.assign({}, myObj, { name: 'fraserxu'})` or `Array.reduce()` over `myObj.name = 'fraserxu'` when updating object
 
+[Mutator method in JavaScript Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Mutator_methods)
+
+**Resources:**
 
 * mori from the ClojureScript community
 * ramdajs
 * Immutable.js in JavaScript
 * seamless-immutable
 * native support in Elm!
-
-[Mutator method in JavaScript Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Mutator_methods)
 
 ### Type system
 
@@ -261,7 +262,7 @@ The only way to make your app predicatable.
 
 **Type Aannotations**
 
-```
+```elm
 answer : Int
 answer =
   42
