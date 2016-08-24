@@ -57,7 +57,7 @@ class: center
 
 ![mvc](https://developer.chrome.com/static/images/mvc.png)
 
-* [MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
+[MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
 
 ---
 class: center
@@ -101,7 +101,7 @@ MVP/MVVM
 const name = 'jsconf china'
 function greeting () {
   // bad things could happen
-  console.log('Welcome to ', name)
+  return 'Welcome to ' + name
 }
 
 // if name updates, the function return different result
@@ -117,7 +117,7 @@ greeting()
 ```JavaScript
 const name = 'jsconf china'
 function greeting (name) {
-  console.log('Welcome to ', name)
+  return 'Welcome to ' + name
 }
 
 // alwasy return the same result
