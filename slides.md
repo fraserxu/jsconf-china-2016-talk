@@ -19,73 +19,138 @@ class: center, middle
 
 > https://en.wikipedia.org/wiki/Design_pattern
 
+???
+Q: What do you know about design patterns?
+
+A: It's about his experience in solving *design issues* and how they related to buildings and towns.
+
+In collaboration with Sara Ishikawa and Murray Silverstein, Alexander produced a pattern language that would help empower anyone wishing to design and build at any scale. This was published back in 1977 in a paper titled “A Pattern Language,” which was later released as a complete hardcover book.
+
 ---
 
 ## Software design pattern
 
-> In software engineering, a software design pattern is a general reusable solution to a commonly occurring problem within a given context in software design. It is not a finished design that can be transformed directly into source or machine code. It is a description or template for how to solve a problem that can be used in many different situations. Design patterns are formalized best practices that the programmer can use to solve common problems when designing an application or system.
+In software engineering, a software design pattern is
+
+* a general reusable solution to a commonly occurring problem within a given context in software design
+* It is a description or template for how to solve a problem that can be used in many different situations.
+
 
 > https://en.wikipedia.org/wiki/Software_design_pattern
+
+???
+Some 30 years ago, software engineers began to incorporate the principles Alexander had written about into the first documentation about design patterns, which was to be a guide for novice developers looking to improve their coding skills.
+
+* It is **not** a finished design that can be transformed directly into source or machine code.
+* Design patterns are formalized best practices that the programmer can use to solve common problems when designing an application or system.
 
 ---
 class: center
 
 ![Design Patterns: Elements of Reusable Object-Oriented Software](https://img3.doubanio.com/lpic/s1074361.jpg)
 
----
+???
+What is the first time I heard about design patterns?
 
-
-## What is a pattern
-
-* Patterns are proven solutions.
-* Patterns can be easily reused.
-* Patterns can be expressive.
+GOF 四人帮
 
 ---
-class: center
 
 ## We Already Use Patterns Every Day
 
-`$el.css(), $el.animate()`
+Object oriented programming
+
+```JavaScript
+class Conference {
+  constructor(name, location, year) {
+    this.name = name
+    this.location = location
+    this.year = year
+  }
+
+  sayHi() {
+    console.log(`欢迎来到${this.year} ${this.location} ${this.name}.`)
+  }
+}
+
+const ningjs = new Conference('JavaScritp中国开发者大会', '南京', '2016年')
+
+ningjs.sayHi()
+// 欢迎来到2016年 南京 JavaScritp中国开发者大会.
+```
+
+???
+Enough about concept, let's check some common patterns we already know and used everyday.
+
+---
+
+### With jQuery
+
+DOM Traversal and Manipulation
+
+```JavaScript
+$( "button.continue" ).html( "Next Step..." )
+```
+
+Event Handling
+
+```JavaScript
+var hiddenBox = $( "#banner-message" );
+$( "#button-container button" ).on( "click", function( event ) {
+  hiddenBox.show();
+});
+```
+
+???
+jQuery is great. Without jQuery I would not be a front-end developer.
 
 ---
 class: center
 
-## Prior art - MVC
+## Prior art - JavaScript MV* Patterns
 
 > Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given software application into three interconnected parts, so as to separate internal representations of information from the ways that information is presented to or accepted from the user.[1][2]
 
-![mvc](https://developer.chrome.com/static/images/mvc.png)
+![mvc](./images/mvc.png)
 
-[MVC Architecture](https://developer.chrome.com/apps/app_frameworks)
+Source: https://addyosmani.com/resources/essentialjsdesignpatterns/book/
 
----
-class: center
+???
 
-## Post MVC era - MV*
+MVC (Model-View-Controller)
 
-MVP/MVVM
+MVP (Model-View-Presenter)
 
-[MVC Versus MVP Versus MVVM](https://www.safaribooksonline.com/library/view/learning-javascript-design/9781449334840/ch10s09.html)
+MVVM (Model-View-ViewModel)
 
 ---
 
 ### Design patterns popular in the current frontend framework world
 
-* Functional programming
+* Functional style programming
 * Declarative and functional view rendering
 * Unidirectional data flow
 * Immutable data structure
 * Type system
 
+???
+Enough about history, let's go back to the modern world.
+
 ---
 
-## Functional programming
+## Functional style programming
 
-* Good for unit test
-* No side effect
+> Functional programming is about writing pure functions, about removing hidden inputs and outputs as far as we can, so that as much of our code as possible just describes a relationship between inputs and outputs.
+
 * Pure functions without any side effect
-* High order function
+* First-class and higher-order functions
+
+source: http://blog.jenkster.com/2015/12/what-is-functional-programming.html
+
+???
+What is functional programming?
+
+What is side effect?
 
 ---
 
@@ -93,19 +158,32 @@ MVP/MVVM
 
 > A pure function is a function where the return value is only determined by its input values, without observable side effects. This is how functions in math work: Math.cos(x) will, for the same value of x , always return the same result. Computing it does not change x
 
+???
+Example of non-pure function and pure function
+
 ---
 
 ### Not pure function
 
+Given same input, the return value is different, not pure.
+
 ```JavaScript
-const name = 'jsconf china'
+let name = 'jsconf china'
 function greeting () {
   // bad things could happen
-  return 'Welcome to ' + name
+  return 'Welcome to ' + name + '.'
 }
+
+function updateName () {
+  name = 'phpconf china'
+}
+
+// accidentally called updateName()
+updateName()
 
 // if name updates, the function return different result
 greeting()
+// 'Welcome to phpconf china.'
 ```
 
 **Hard to test.**
@@ -113,6 +191,8 @@ greeting()
 ---
 
 ### Pure function
+
+Given same input, always return same value.
 
 ```JavaScript
 const name = 'jsconf china'
@@ -149,6 +229,8 @@ test('greeting function', function (assert) {
 
 ### High order function
 
+> a function that does at least one of the following: takes one or more functions as arguments (i.e., procedural parameters), returns a function as its result.
+
 ```JavaScript
 function year (year) {
   // return a new function
@@ -162,10 +244,13 @@ const time = year(2016)
 // we can call time function
 time('Nanjing')
 
+// or
 year(2016)('Nanjing')
-
 // 'Welcome to 2016 JSConf China in Nanjing.'
 ```
+
+???
+How does this related to building user interface?
 
 ---
 
@@ -178,30 +263,17 @@ Fn: State -> DOM
 View = Fn State
 ```
 
-* Good for unit test
-* No side effect(setState)
-* Stateless/pure component
-* High order component
+* No side effect, return same HTML given same state
+* Stateless/pure component, easy to test
+* High order component, make composition easy
 
 ---
 
 ### In [React](https://facebook.github.io/react/)
 
 ```JavaScript
-var HelloMessage = React.createClass({
-  render: function() {
-    return <div>Hello {this.props.name}</div>;
-  }
-});
-
-ReactDOM.render(<HelloMessage name="John" />, mountNode);
-```
-
-**Stateless Functions in React**
-
-```js
 const HelloMessage = (props) => <div>Hello {props.name}</div>;
-ReactDOM.render(<HelloMessage name="Sebastian" />, mountNode);
+ReactDOM.render(<HelloMessage name="JSConf China" />, mountNode);
 ```
 
 ---
@@ -209,9 +281,15 @@ ReactDOM.render(<HelloMessage name="Sebastian" />, mountNode);
 ### In [yo-yo](https://github.com/maxogden/yo-yo)
 
 ```js
-var yo = require('yo-yo')
+const yo = require('yo-yo')
 
-var element = yo`<h1>hello world!</h1>`
+const HelloMessage = (props) => {
+  return yo`<div>hello ${props.name}!</div>`
+}
+const element = HelloMessage({
+  name: 'JSConf China'
+})
+
 document.body.appendChild(element)
 ```
 
@@ -220,13 +298,21 @@ document.body.appendChild(element)
 ### In [Elm](http://elm-lang.org/)
 
 ```elm
-import Html exposing (span, text)
+import Html exposing (div, text)
 import Html.Attributes exposing (class)
 
 
-main =
-  span [class "welcome-message"] [text "Hello, NingJS!"]
+model = {
+  name = "JSConf China"
+}
+
+
+main model =
+  div [class "welcome-message"] [text ("Hello, " ++ model.name)]
 ```
+
+???
+Things started to out of control.
 
 ---
 class:center, middle
@@ -289,33 +375,41 @@ Note: ^ is from [The Elm Architecture](http://guide.elm-lang.org/architecture/in
 
 ---
 
-![elm_arc](./images/elm_arch.png)
-
----
-
 ### Code example with Elm
 
 ```elm
-import Html exposing (button, text)
+import Html exposing (div, button, text)
 import Html.App exposing (beginnerProgram)
 import Html.Events exposing (onClick)
 
+
 main =
-  beginnerProgram { model = "打招呼", view = view, update = update }
+  beginnerProgram { model = 0, view = view, update = update }
+
 
 view model =
-  button [ onClick SayHello ] [ text model ]
+  div []
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (toString model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
 
-type Msg = SayHello
+
+type Msg = Increment | Decrement
+
 
 update msg model =
   case msg of
-    SayHello ->
-      "你好"
+    Increment ->
+      model + 1
+
+    Decrement ->
+      model - 1
 
 ```
 
-*When you are confused of the api design of Redux, go and check out the Elm architecture, it really helps.*
+???
+When you are confused of the api design of Redux, go and check out the Elm architecture, it really helps.
 
 ---
 
