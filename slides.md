@@ -259,8 +259,8 @@ How does this related to building user interface?
 Declarative rendering, view is a presentation of a state.
 
 ```elm
-Fn: State -> DOM
-View = Fn State
+view : Model -> Html
+view model = Html
 ```
 
 * No side effect, return same HTML given same state
@@ -416,6 +416,11 @@ When you are confused of the api design of Redux, go and check out the Elm archi
 ### Immutable data structure
 
 The only way to make your app predicatable.
+
+
+---
+
+### How to not mutate
 
 --
 * `Array.map()` over `Array.forEach()` when iterating
