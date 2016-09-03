@@ -5,9 +5,11 @@ class: center, middle
 ---
 class: center, middle
 
-## Fraser Xu @fraserxu
+.avatar[![fraserxu](images/fraserxu.jpeg)]
 
-### Front End Develoepr at [Envato](https://envato.com)
+## Fraser Xu @[fraserxu](https://github.com/fraserxu)
+
+### Front End Developer at [Envato](https://envato.com)
 
 .logo[![envato](images/envato_logo.svg.png)]
 
@@ -15,7 +17,7 @@ class: center, middle
 
 ## Introduction
 
-> A design pattern is the re-usable form of a solution to a design problem. The idea was introduced by the architect Christopher Alexander[1] and has been adapted for various other disciplines, most notably "computer science".[2]
+> A design pattern is the re-usable form of a solution to a design problem. The idea was introduced by the architect Christopher Alexander and has been adapted for various other disciplines, most notably "computer science".
 
 > https://en.wikipedia.org/wiki/Design_pattern
 
@@ -35,7 +37,6 @@ In software engineering, a software design pattern is
 * a general reusable solution to a commonly occurring problem within a given context in software design
 * It is a description or template for how to solve a problem that can be used in many different situations.
 
-
 > https://en.wikipedia.org/wiki/Software_design_pattern
 
 ???
@@ -53,6 +54,10 @@ class: center
 What is the first time I heard about design patterns?
 
 GOF 四人帮
+
+Now we've got the definition of What a software design patterns are, do you know anyone of them?
+
+Enough about concept, let's check some common patterns we already know and used everyday.
 
 ---
 
@@ -79,9 +84,6 @@ ningjs.sayHi()
 // 欢迎来到2016年 南京 JavaScritp中国开发者大会.
 ```
 
-???
-Enough about concept, let's check some common patterns we already know and used everyday.
-
 ---
 
 ### With jQuery
@@ -101,15 +103,12 @@ $( "#button-container button" ).on( "click", function( event ) {
 });
 ```
 
-???
-jQuery is great. Without jQuery I would not be a front-end developer.
-
 ---
 class: center
 
-## Prior art - JavaScript MV* Patterns
+## MV* Patterns
 
-> Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given software application into three interconnected parts, so as to separate internal representations of information from the ways that information is presented to or accepted from the user.[1][2]
+> Model–view–controller (MVC) is a software architectural pattern for implementing user interfaces on computers. It divides a given software application into three interconnected parts, so as to separate internal representations of information from the ways that information is presented to or accepted from the user.
 
 ![mvc](./images/mvc.png)
 
@@ -123,18 +122,21 @@ MVP (Model-View-Presenter)
 
 MVVM (Model-View-ViewModel)
 
+Backbone.js, Angular.js, Knockout.js
+
+Single page app getting popular, what are the popular ones?
+
+Enough about history, let's go back to the modern world.
+
 ---
 
 ### Design patterns popular in the current frontend framework world
 
-* Functional style programming
+* Functional programming
 * Declarative and functional view rendering
 * Unidirectional data flow
 * Immutable data structure
 * Type system
-
-???
-Enough about history, let's go back to the modern world.
 
 ---
 
@@ -150,13 +152,15 @@ source: http://blog.jenkster.com/2015/12/what-is-functional-programming.html
 ???
 What is functional programming?
 
-What is side effect?
+Functional Programming (FP) is not a new concept by any means. It's been around almost as long as any programming has been around.
+
+Oh wait, What is pure function? what is side effect?
 
 ---
 
 ### Pure function
 
-> A pure function is a function where the return value is only determined by its input values, without observable side effects. This is how functions in math work: Math.cos(x) will, for the same value of x , always return the same result. Computing it does not change x
+> A pure function is a function where the **return value** is **only determined** by its **input values**, without observable side effects. This is how functions in math work: Math.cos(x) will, for the same value of x , always return the same result. Computing it does not change x
 
 ???
 Example of non-pure function and pure function
@@ -211,11 +215,12 @@ greeting(name)
 ### Test pure function
 
 ```JavaScript
+const test = require('tape')
+
 function greeting (name) {
   return 'Welcome to ' + name
 }
 
-const test = require('tape')
 test('greeting function', function (assert) {
   const expect = greeting('jsconf china')
   const actual = 'Welcome to jsconf china'
@@ -266,6 +271,8 @@ view model = Html
 * No side effect, return same HTML given same state
 * Stateless/pure component, easy to test
 * High order component, make composition easy
+* Separate concern between UI view and other business logic
+* Make it easy to target multiple different platforms
 
 ---
 
@@ -278,7 +285,33 @@ ReactDOM.render(<HelloMessage name="JSConf China" />, mountNode);
 
 ---
 
+### In [React Native](https://facebook.github.io/react-native/)
+
+```JavaScript
+import React, { Component } from 'react'
+import { AppRegistry, Text, View } from 'react-native'
+
+class HelloComponent extends Component {
+  render() {
+    const { name } = this.props
+    return (
+      <View>
+        <Text>
+          Hello {name}
+        </Text>
+        View>
+    );
+  }
+}
+
+AppRegistry.registerComponent('HelloComponent', () => HelloComponent)
+```
+
+---
+
 ### In [yo-yo](https://github.com/maxogden/yo-yo)
+
+> A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals
 
 ```js
 const yo = require('yo-yo')
@@ -350,7 +383,11 @@ class:center, middle
 <small>[Redux flow](https://github.com/reactjs/redux/issues/653)</small>
 ---
 
-### With [Choo](https://github.com/yoshuawuyts/choo#concepts)
+### With [Choo](https://github.com/yoshuawuyts/choo#concepts) 🚂🚋🚋🚋🚋🚋
+
+Fun functional programming
+
+A 5kb framework for creating sturdy frontend applications
 
 ```txt
  ┌─────────────────┐
@@ -366,6 +403,10 @@ Note: ^ is from Choo.
 ---
 
 ### With [Elm](elm-lang.org)
+
+A delightful language for reliable webapps.
+
+Generate JavaScript with great performance and no runtime exceptions.
 
 * Model — the state of your application
 * Update — a way to update your state
@@ -415,8 +456,17 @@ When you are confused of the api design of Redux, go and check out the Elm archi
 
 ### Immutable data structure
 
-The only way to make your app predicatable.
+* Predictability
+* Performance
+* Mutation Tracking
 
+???
+
+Mutation hides change, which create (unexpected) side effects, which can cause nasty bugs. When you enforce immutability you can keep your application architecture and mental model simple, which makes it easier to reason about your application.
+
+Even though adding values to an immutable Object means that a new instance needs to be created where existing values need to be copied and new values need to be added to the new Object which cost memory. Immutable Objects can make use of structural sharing to reduce memory overhead.
+
+Besides reduced memory usage, immutability allows you to optimize your application by making use of reference- and value equality. This makes it really easy to see if anything has changed. For example a state change in a react component. You can use shouldComponentUpdate to check if the state is identical by comparing state Objects and prevent unnecessary rendering. You can read more about this here.
 
 ---
 
@@ -500,7 +550,21 @@ class: center, middle
 
 ## Conclusion
 
+* Functional style programming
+* Declarative and functional view rendering
+* Unidirectional data flow
+* Immutable data structure
+* Type system
+
+--
+Patterns are not always true, choose the right one at the right time.
+
+--
+
+
 ---
 class: center, middle
 
 ## Thank you!
+
+Slides can be found at https://github.com/fraserxu/jsconf-china-2016-talk
