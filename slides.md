@@ -470,7 +470,45 @@ Besides reduced memory usage, immutability allows you to optimize your applicati
 
 ---
 
-### How to not mutate
+### Immutable.js
+
+```
+var Immutable = require('immutable')
+
+var map = Immutable.Map({ a: 1, b: 2, c: 3 })
+
+map
+  .set('b', 50)
+  .get('b') // 50
+
+var list = Immutable.List.of(1, 2)
+
+list
+  .push(3, 4, 5)
+  .unshift(0)
+  .concat(list2, list3)
+  .get(0)
+  .size
+```
+
+---
+
+### Elm lang
+
+```elm
+model =
+  {name = "JSConf China"
+  , location = "Shenzhen"
+  }
+
+newModel =
+  {model | location = "Nanjing"}
+
+```
+
+---
+
+### How to not mutate with "native" JavaScript
 
 --
 * `Array.map()` over `Array.forEach()` when iterating
@@ -486,12 +524,11 @@ Besides reduced memory usage, immutability allows you to optimize your applicati
 --
 
 
-
 [Mutator method in JavaScript Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Mutator_methods)
 
 ---
 
-### Immutable in JavaScript resources
+### Immutable JavaScript resources
 
 * mori from the ClojureScript community
 * ramdajs
@@ -503,6 +540,23 @@ Besides reduced memory usage, immutability allows you to optimize your applicati
 
 ### Type system
 
+Improve reliability of complex system, 0 run time error.
+
+```JavaScript
+function toLower (str) {
+  return str.toLowerCase()
+}
+
+toLower("YO")
+// "yo"
+toLower(123)
+// Uncaught TypeError: str.toLowerCase is not a function(…)
+```
+
+---
+
+### Cool kids
+
 * Flow
 * TypeScript
 * ClojureScript
@@ -510,7 +564,32 @@ Besides reduced memory usage, immutability allows you to optimize your applicati
 
 ---
 
-### Type Aannotations
+### Example with Flow type
+
+```JavaSCript
+/* @flow */
+
+function toLower (str) {
+  return str.toLowerCase()
+}
+
+toLower("YO")
+toLower(123)
+
+// or
+
+function toLower(str) : string {
+  return str.toLowerCase()
+}
+
+toLower(123)
+```
+
+![flow](images/flow.png)
+
+---
+
+### Type Aannotations in Elm
 
 ```elm
 answer : Int
@@ -556,10 +635,6 @@ class: center, middle
 * Immutable data structure
 * Type system
 
---
-Patterns are not always true, choose the right one at the right time.
-
---
 
 
 ---
@@ -568,3 +643,13 @@ class: center, middle
 ## Thank you!
 
 Slides can be found at https://github.com/fraserxu/jsconf-china-2016-talk
+
+---
+class: center, middle
+
+background-image: url(https://dktovmf07nr2a.cloudfront.net/theme_assets/envato-careers/assets/images/photo-background-d11a257b90.jpg)
+
+<h2 class='white'>[Envato](http://careers.envato.com/) is hiring!<h2>
+
+.logo[![envato](images/envato_logo.svg.png)]
+
