@@ -565,11 +565,6 @@ toLower(123)
 ```
 
 ---
-class: center, middle
-
-![book](images/book.jpg)
-
----
 
 ### Cool kids
 
@@ -602,6 +597,15 @@ toLower(123)
 ```
 
 ![flow](images/flow.png)
+
+---
+
+### Example with Elm lang
+
+![elm](http://elm-lang.org/assets/blog/error-messages/0.16/string-hint.png)
+
+???
+Unlike hand-written JavaScript, Elm code does not produce runtime exceptions in practice. Instead, Elm uses type inference to detect problems during compilation and give friendly hints. This way problems never make it to your users. NoRedInk has 36k lines of Elm, and after more than a year in production, it still has not produced a single runtime exception.
 
 ---
 
