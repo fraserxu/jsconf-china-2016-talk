@@ -60,6 +60,11 @@ Now we've got the definition of What a software design patterns are, do you know
 Enough about concept, let's check some common patterns we already know and used everyday.
 
 ---
+class: center, middle
+
+![pattern](images/pattern.jpeg)
+
+---
 
 ## We Already Use Patterns Every Day
 
@@ -144,8 +149,9 @@ Enough about history, let's go back to the modern world.
 
 > Functional programming is about writing pure functions, about removing hidden inputs and outputs as far as we can, so that as much of our code as possible just describes a relationship between inputs and outputs.
 
-* Pure functions without any side effect
-* First-class and higher-order functions
+**Pure functions without any side effect**
+
+**First-class and higher-order functions**
 
 source: http://blog.jenkster.com/2015/12/what-is-functional-programming.html
 
@@ -155,6 +161,11 @@ What is functional programming?
 Functional Programming (FP) is not a new concept by any means. It's been around almost as long as any programming has been around.
 
 Oh wait, What is pure function? what is side effect?
+
+---
+class: center, middle
+
+![pattern](images/function.jpeg)
 
 ---
 
@@ -554,6 +565,11 @@ toLower(123)
 ```
 
 ---
+class: center, middle
+
+![book](images/book.jpg)
+
+---
 
 ### Cool kids
 
@@ -635,15 +651,6 @@ class: center, middle
 * Immutable data structure
 * Type system
 
-
-
----
-class: center, middle
-
-## Thank you!
-
-Slides can be found at https://github.com/fraserxu/jsconf-china-2016-talk
-
 ---
 class: center, middle
 
@@ -652,4 +659,13 @@ background-image: url(https://dktovmf07nr2a.cloudfront.net/theme_assets/envato-c
 <h2 class='white'>[Envato](http://careers.envato.com/) is hiring!<h2>
 
 .logo[![envato](images/envato_logo.svg.png)]
+
+---
+class: center, middle
+
+## Thank you!
+
+Slides can be found at https://github.com/fraserxu/jsconf-china-2016-talk
+
+
 
