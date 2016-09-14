@@ -9,7 +9,7 @@ class: center, middle
 
 ## Fraser Xu @[fraserxu](https://github.com/fraserxu)
 
-### Front End Developer at [Envato](https://envato.com)
+### JavaScript Developer at [Envato](https://envato.com)
 
 .logo[![envato](images/envato_logo.svg.png)]
 
@@ -483,7 +483,7 @@ Besides reduced memory usage, immutability allows you to optimize your applicati
 
 ### Immutable.js
 
-```
+```JavaScript
 var Immutable = require('immutable')
 
 var map = Immutable.Map({ a: 1, b: 2, c: 3 })
@@ -648,6 +648,10 @@ origin =
 class: center, middle
 
 ## Conclusion
+
+![goodpart](./images/javascript.jpg)
+
+### JavaScript is not a perfect language(at all).
 
 * Functional style programming
 * Declarative and functional view rendering
