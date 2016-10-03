@@ -310,7 +310,7 @@ class HelloComponent extends Component {
         <Text>
           Hello {name}
         </Text>
-        View>
+      <View>
     );
   }
 }
